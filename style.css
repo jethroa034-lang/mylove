@@ -133,15 +133,22 @@ header h1{
 /* Controls */
 /* ========================================== */
 /* Controls */
-.controls{
-  display: flex;             /* Use flex to align buttons */
-  justify-content: center;   /* Center buttons horizontally */
-  gap: 10px;                 /* Space between buttons */
-  margin: 15px auto 40px auto; /* Below the book */
-  flex-wrap: wrap;           /* Wrap buttons on small screens */
-  width: 100%;               /* Span the full width */
-  text-align: center;
+.book-container{
+  display: flex;
+  flex-direction: column;      /* stack book + controls vertically */
+  align-items: center;         /* center horizontally */
+  margin: 0 auto 50px auto;    /* spacing around the container */
+  width: 100%;
 }
+
+.controls{
+  display: flex;
+  justify-content: center;    /* center buttons */
+  gap: 10px;                  /* space between buttons */
+  flex-wrap: wrap;            /* wrap on small screens */
+  margin-top: 15px;           /* space below the book */
+}
+
 
 button{
   padding:12px 25px;
@@ -203,4 +210,5 @@ button:hover{
   .page img{height:180px;}
   .page p{font-size:0.75rem;}
 }
+
 
