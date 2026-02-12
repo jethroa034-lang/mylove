@@ -30,14 +30,23 @@ header h1{
 
 /* ========================================== */
 /* Book Scene */
-.scene{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin:20px;
-  perspective:3000px;
+.book-wrapper {
+  display: flex;
+  flex-direction: column; /* stack book and buttons vertically */
+  align-items: center;    /* center horizontally */
+  margin: 0 auto 50px auto;
+  width: 100%;
+  position: relative;
 }
 
+/* SCENE */
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 420px;        /* same as book width */
+  height: clamp(500px, 80vh, 580px);
+  perspective: 3000px;
+}
 .book{
   width:95%;
   max-width:420px;
@@ -143,32 +152,40 @@ header h1{
 }
 
 /* ======= Buttons ======= */
-.controls{
+.controls {
   display: flex;
   justify-content: center; /* center buttons */
-  gap: 10px;               /* spacing */
+  gap: 12px;               /* space between buttons */
+  margin-top: 15px;        /* small space under book */
   flex-wrap: wrap;         /* wrap on small screens */
-  margin-top: 15px;        /* space below book */
+  width: 100%;
+  max-width: 420px;        /* same width as book */
 }
 
-button{
-  padding:12px 25px;
-  border:none;
-  border-radius:30px;
-  background:#ff4d6d;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 0 15px rgba(255,77,109,0.4);
+/* BUTTON STYLING */
+.controls button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
 }
 
-button:hover{
-  background:#ffd166;
-  color:#5a0015;
-  transform:scale(1.08);
+.controls button:hover {
+  background: #ffd166;
+  color: #5a0015;
+  transform: scale(1.08);
 }
 
+/* RESPONSIVE */
+@media(max-width:480px){
+  .controls { gap: 8px; }
+  .controls button { padding: 10px 18px; font-size: 0.9rem; }
+}
 /* ========================================== */
 /* Floating hearts & roses */
 .float{
@@ -208,61 +225,6 @@ button:hover{
   .book{height:480px;}
   .page img{height:180px;}
   .page p{font-size:0.75rem;}
-}
-
-/* WRAPPER - ties book and buttons together */
-.book-wrapper {
-  display: flex;
-  flex-direction: column; /* stack book and buttons vertically */
-  align-items: center;    /* center horizontally */
-  margin: 0 auto 50px auto;
-  width: 100%;
-  position: relative;
-}
-
-/* SCENE */
-.scene {
-  position: relative;
-  width: 100%;
-  max-width: 420px;        /* same as book width */
-  height: clamp(500px, 80vh, 580px);
-  perspective: 3000px;
-}
-
-/* CONTROLS - DIRECTLY BELOW BOOK */
-.controls {
-  display: flex;
-  justify-content: center; /* center buttons */
-  gap: 12px;               /* space between buttons */
-  margin-top: 15px;        /* small space under book */
-  flex-wrap: wrap;         /* wrap on small screens */
-  width: 100%;
-  max-width: 420px;        /* same width as book */
-}
-
-/* BUTTON STYLING */
-.controls button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  background: #ff4d6d;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
-}
-
-.controls button:hover {
-  background: #ffd166;
-  color: #5a0015;
-  transform: scale(1.08);
-}
-
-/* RESPONSIVE */
-@media(max-width:480px){
-  .controls { gap: 8px; }
-  .controls button { padding: 10px 18px; font-size: 0.9rem; }
 }
 
 
