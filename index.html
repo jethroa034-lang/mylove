@@ -90,14 +90,22 @@
   </div>
 
   <!-- BUTTONS UNDER THE BOOK -->
-  <div class="controls">
-    <button onclick="openBook()">Open</button>
-    <button onclick="nextPage()">Next</button>
-    <button onclick="prevPage()">Prev</button>
-    <button onclick="closeBook()">Close</button>
+ <div class="book-wrapper">  <!-- NEW WRAPPER -->
+  <div class="scene">
+    <div class="book" id="book">
+      <!-- cover + pages here -->
+    </div>
   </div>
 
+  <!-- CONTROLS INSIDE THE WRAPPER -->
+  <div class="controls">
+    <button onclick="openBook()">Open</button>
+    <button onclick="prevPage()">Prev</button>
+    <button onclick="nextPage()">Next</button>
+    <button onclick="closeBook()">Close</button>
+  </div>
 </div>
+
 
 <!-- MUSIC -->
 <audio id="bgMusic" loop>
@@ -162,5 +170,6 @@ setInterval(createFloat,300);
 
 </body>
 </html>
+
 
 
