@@ -210,5 +210,63 @@ button:hover{
   .page p{font-size:0.75rem;}
 }
 
+/* NEW WRAPPER TO HOLD BOOK + BUTTONS */
+.book-wrapper {
+  display: flex;
+  flex-direction: column; /* stack book + buttons vertically */
+  align-items: center;    /* center horizontally */
+  margin: 0 auto 50px auto;
+  width: 100%;
+  position: relative;     /* ensures buttons align with book */
+}
+
+/* SCENE stays relative to wrapper */
+.scene {
+  position: relative;     /* was flex before */
+  perspective: 3000px;
+  width: 100%;
+  max-width: 420px;
+  height: clamp(500px, 80vh, 580px);
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+  flex-wrap: wrap; /* wrap on small screens */
+  width: 100%;
+  max-width: 420px; /* same width as book */
+}
+
+/* BUTTONS */
+.controls button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
+}
+
+.controls button:hover {
+  background: #ffd166;
+  color: #5a0015;
+  transform: scale(1.08);
+}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .scene { height: 480px; }
+  .controls { gap: 8px; }
+  .controls button { padding: 10px 18px; font-size: 0.9rem; }
+}
+
+
+
 
 
