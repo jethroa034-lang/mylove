@@ -133,22 +133,23 @@ header h1{
 /* Controls */
 /* ========================================== */
 /* Controls */
+/* ======= Book Container ======= */
 .book-container{
   display: flex;
-  flex-direction: column;      /* stack book + controls vertically */
-  align-items: center;         /* center horizontally */
-  margin: 0 auto 50px auto;    /* spacing around the container */
+  flex-direction: column; /* stack book + buttons */
+  align-items: center;    /* center horizontally */
+  margin: 0 auto 50px auto;
   width: 100%;
 }
 
+/* ======= Buttons ======= */
 .controls{
   display: flex;
-  justify-content: center;    /* center buttons */
-  gap: 10px;                  /* space between buttons */
-  flex-wrap: wrap;            /* wrap on small screens */
-  margin-top: 15px;           /* space below the book */
+  justify-content: center; /* center buttons */
+  gap: 10px;               /* spacing */
+  flex-wrap: wrap;         /* wrap on small screens */
+  margin-top: 15px;        /* space below book */
 }
-
 
 button{
   padding:12px 25px;
@@ -160,7 +161,6 @@ button{
   cursor:pointer;
   transition:0.3s;
   box-shadow:0 0 15px rgba(255,77,109,0.4);
-  text-align:center;
 }
 
 button:hover{
@@ -168,7 +168,6 @@ button:hover{
   color:#5a0015;
   transform:scale(1.08);
 }
-
 
 /* ========================================== */
 /* Floating hearts & roses */
@@ -210,5 +209,6 @@ button:hover{
   .page img{height:180px;}
   .page p{font-size:0.75rem;}
 }
+
 
 
