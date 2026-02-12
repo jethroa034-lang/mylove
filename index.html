@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Valentine Photo Book 🌹</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>Our Love Story ❤️</h1>
+</header>
+
+<div class="scene">
+  <div class="book" id="book">
+
+    <div class="cover" id="cover">
+      <h2>For My Beautiful</h2>
+      <span>Forever Valentine 🌹</span>
+    </div>
+
+    <!-- Pages -->
+    <div class="page">
+      <img src="/image/Screenshot 2026-02-12 225927.png">
+      <h3>Chapter 1: Love </h3>
+      <p>The day I met you, my heart knew.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/c129681d-aaa7-44a5-8ab3-7382109b701c.jpg">
+      <h3>Chapter 2</h3>
+      <p>Your smile brightens my world.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/d3819593-85c1-4dc5-94ed-f3fb5b7d2db8.jpg">
+      <h3>Chapter 3</h3>
+      <p>Every memory with you is magical.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/5b932eb0-9692-4379-a27f-5c013d742763.jpg">
+      <h3>Chapter 4</h3>
+      <p>Your laugh is my favorite melody.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/9f4cd983-2410-4698-bdef-0c2861ba350e.jpg">
+      <h3>Chapter 5</h3>
+      <p>I want to explore life with you.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/8df04e51-1d9b-4371-8f69-e158c85d47cf.jpg">
+      <h3>Chapter 6</h3>
+      <p>You are my safe place.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/ff1090ee-f747-45f2-ad8b-173a0629f4e8.jpg">
+      <h3>Chapter 7</h3>
+      <p>The smallest things you do mean everything.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/5d1abcb0-d6eb-4112-afc2-0b10d110c238.jpg">
+      <h3>Chapter 8</h3>
+      <p>I promise to always stay.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/8a777893-8c88-4bd8-af66-739bfb4fd389.jpg">
+      <h3>Chapter 9</h3>
+      <p>You are my today and every tomorrow.</p>
+    </div>
+
+    <div class="page">
+      <img src="/image/d62d4ed4-9548-40c1-94d6-30a3b2999d70.jpg">
+      <h3>Chapter 10: Happy Valentine's Day Lovee!!!! ❤️</h3>
+      <p>I will always choose you.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="controls">
+  <button onclick="openBook()">Open</button>
+  <button onclick="nextPage()">Next</button>
+  <button onclick="prevPage()">Prev</button>
+  <button onclick="closeBook()">Close</button>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="yourmusic.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-btn" onclick="toggleMusic()">🎵</div>
+
+<script>
+const cover=document.getElementById("cover");
+const pages=document.querySelectorAll(".page");
+const music=document.getElementById("bgMusic");
+
+let current=0;
+let isOpen=false;
+
+// z-index stacking for proper flipping
+pages.forEach((page,index)=>{
+  page.style.zIndex=pages.length-index;
+});
+
+function openBook(){
+  cover.style.transform="rotateY(-180deg)";
+  isOpen=true;
+  music.play().catch(()=>{});
+}
+
+function closeBook(){
+  if(current===0){
+    cover.style.transform="rotateY(0deg)";
+    isOpen=false;
+  }
+}
+
+function nextPage(){
+  if(isOpen && current<pages.length){
+    pages[current].style.transform="rotateY(-180deg)";
+    current++;
+  }
+}
+
+function prevPage(){
+  if(isOpen && current>0){
+    current--;
+    pages[current].style.transform="rotateY(0deg)";
+  }
+}
+
+function toggleMusic(){
+  music.paused?music.play():music.pause();
+}
+
+// Floating hearts and roses
+function createFloat(){
+  const el=document.createElement("div");
+  el.classList.add("float");
+  el.innerHTML=Math.random()>0.4?"❤️":"🌹";
+  el.style.left=Math.random()*100+"vw";
+  el.style.fontSize=Math.random()*20+20+"px";
+  el.style.animationDuration=Math.random()*3+6+"s";
+  document.body.appendChild(el);
+  setTimeout(()=>{el.remove();},9000);
+}
+setInterval(createFloat,300);
+</script>
+
+</body>
+</html>

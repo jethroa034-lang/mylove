@@ -1,0 +1,197 @@
+/* ========================================== */
+/* Reset */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* ========================================== */
+/* Body & Background */
+body{
+  font-family:'Playfair Display', serif;
+  background:radial-gradient(circle at top,#5a0015,#2b0008 70%);
+  overflow-x:hidden;
+  color:#fff0f3;
+}
+
+/* Header */
+header{
+  text-align:center;
+  padding:35px 15px;
+}
+
+header h1{
+  font-family:'Great Vibes', cursive;
+  font-size:clamp(2rem,6vw,3.2rem);
+  color:#ffccd5;
+  text-shadow:0 0 10px rgba(255,215,0,0.4);
+}
+
+/* ========================================== */
+/* Book Scene */
+.scene{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:20px;
+  perspective:3000px;
+}
+
+.book{
+  width:95%;
+  max-width:420px;
+  height:clamp(500px,80vh,580px);
+  position:relative;
+  transform-style:preserve-3d;
+}
+
+/* ========================================== */
+/* Cover */
+.cover{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(145deg,#7a001b,#4b000e);
+  border-radius:20px;
+  border-left:8px solid rgba(255,215,0,0.5);
+  border-top:2px solid rgba(255,215,0,0.3);
+  border-bottom:2px solid rgba(255,215,0,0.3);
+  box-shadow:0 0 40px rgba(255,215,0,0.25), inset 0 0 15px rgba(0,0,0,0.5);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:100;
+  transition:transform 1s ease;
+  transform-origin:left;
+}
+
+.cover h2{
+  font-family:'Playfair Display', serif;
+  color:#ffe8a3;
+  font-size:1.6rem;
+}
+
+.cover span{
+  font-family:'Great Vibes', cursive;
+  font-size:2.4rem;
+  color:#ff8fa3;
+  margin-top:10px;
+  text-shadow: 0 0 5px #ffd166;
+}
+
+/* ========================================== */
+/* Pages */
+.page{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#800020;
+  border-radius:18px;
+  padding:15px;
+  border:2px solid rgba(255,215,0,0.3);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.4), inset 0 0 15px rgba(0,0,0,0.5);
+  transform-origin:left;
+  transition:transform 1s ease;
+  backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* Page photo styling */
+.page img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  border-radius:15px;
+  border:2px solid rgba(255,215,0,0.5);
+  margin-bottom:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* Page text */
+.page h3{
+  font-family:'Playfair Display', serif;
+  color:#ffe8a3;
+  font-size:1.2rem;
+  margin-bottom:6px;
+  text-shadow: 0 0 3px #ffd166;
+}
+
+.page p{
+  font-family:'Poppins', sans-serif;
+  color:#fff0f3;
+  font-size:clamp(0.85rem,2.5vw,1rem);
+  line-height:1.5;
+}
+
+/* ========================================== */
+/* Controls */
+.controls{
+  text-align:center;
+  margin:25px;
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  margin:5px;
+  transition:0.3s;
+  box-shadow:0 0 15px rgba(255,77,109,0.4);
+}
+
+button:hover{
+  background:#ffd166;
+  color:#5a0015;
+  transform:scale(1.08);
+}
+
+/* ========================================== */
+/* Floating hearts & roses */
+.float{
+  position:fixed;
+  bottom:-20px;
+  animation:floatUp linear infinite;
+  pointer-events:none;
+  opacity:0.85;
+  z-index:999;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0deg);}
+  100%{transform:translateY(-120vh) rotate(360deg);}
+}
+
+/* Music toggle */
+.music-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#ffd166;
+  color:#5a0015;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  font-size:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(255,215,0,0.5);
+}
+
+/* Responsive */
+@media(max-width:480px){
+  .book{height:480px;}
+  .page img{height:180px;}
+  .page p{font-size:0.75rem;}
+}
