@@ -210,37 +210,37 @@ button:hover{
   .page p{font-size:0.75rem;}
 }
 
-/* NEW WRAPPER TO HOLD BOOK + BUTTONS */
+/* WRAPPER - ties book and buttons together */
 .book-wrapper {
   display: flex;
-  flex-direction: column; /* stack book + buttons vertically */
+  flex-direction: column; /* stack book and buttons vertically */
   align-items: center;    /* center horizontally */
   margin: 0 auto 50px auto;
   width: 100%;
-  position: relative;     /* ensures buttons align with book */
+  position: relative;
 }
 
-/* SCENE stays relative to wrapper */
+/* SCENE */
 .scene {
-  position: relative;     /* was flex before */
-  perspective: 3000px;
+  position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 420px;        /* same as book width */
   height: clamp(500px, 80vh, 580px);
+  perspective: 3000px;
 }
 
-/* CONTROLS */
+/* CONTROLS - DIRECTLY BELOW BOOK */
 .controls {
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 15px;
-  flex-wrap: wrap; /* wrap on small screens */
+  justify-content: center; /* center buttons */
+  gap: 12px;               /* space between buttons */
+  margin-top: 15px;        /* small space under book */
+  flex-wrap: wrap;         /* wrap on small screens */
   width: 100%;
-  max-width: 420px; /* same width as book */
+  max-width: 420px;        /* same width as book */
 }
 
-/* BUTTONS */
+/* BUTTON STYLING */
 .controls button {
   padding: 12px 25px;
   border: none;
@@ -261,10 +261,10 @@ button:hover{
 
 /* RESPONSIVE */
 @media(max-width:480px){
-  .scene { height: 480px; }
   .controls { gap: 8px; }
   .controls button { padding: 10px 18px; font-size: 0.9rem; }
 }
+
 
 
 
