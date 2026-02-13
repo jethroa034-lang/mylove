@@ -1,4 +1,4 @@
-/* ========================================== */body{
+/* ========================================== */body{body{
     margin:0;
     font-family:Georgia, serif;
     background:linear-gradient(to bottom,#4b000f,#1a0006);
@@ -7,21 +7,21 @@
     color:#fff;
 }
 
+/* Title */
 .title{
     margin-top:30px;
     font-size:2rem;
 }
 
-/* MAIN WRAPPER */
+/* Wrapper */
 .wrapper{
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
     margin-top:20px;
 }
 
-/* BOOK SCENE */
+/* Book Scene */
 .scene{
     width:350px;
     height:500px;
@@ -29,6 +29,7 @@
     position:relative;
 }
 
+/* Book */
 .book{
     width:100%;
     height:100%;
@@ -36,7 +37,7 @@
     transform-style:preserve-3d;
 }
 
-/* COVER */
+/* Cover */
 .cover{
     position:absolute;
     width:100%;
@@ -47,13 +48,13 @@
     justify-content:center;
     align-items:center;
     border-radius:15px;
-    box-shadow:0 0 30px rgba(255,215,0,0.3);
+    box-shadow:0 0 30px rgba(255,215,0,0.4);
     transform-origin:left;
     transition:1s;
     z-index:20;
 }
 
-/* PAGES */
+/* Pages */
 .page{
     position:absolute;
     width:100%;
@@ -80,7 +81,7 @@
     font-weight:bold;
 }
 
-/* BUTTONS BELOW BOOK */
+/* Buttons */
 .controls{
     margin-top:20px;
     display:flex;
@@ -106,7 +107,7 @@
     color:#000;
 }
 
-/* MUSIC BUTTON */
+/* Music button */
 .music-btn{
     position:fixed;
     bottom:20px;
@@ -115,21 +116,26 @@
     cursor:pointer;
 }
 
-/* FLOATING HEARTS */
+/* Floating Hearts & Roses */
 .float{
     position:fixed;
-    bottom:-20px;
+    bottom:-30px;
     animation:floatUp linear forwards;
+    pointer-events:none;
 }
 
 @keyframes floatUp{
-    to{
-        transform:translateY(-110vh);
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
         opacity:0;
     }
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media(max-width:400px){
     .scene{width:90vw;height:70vh;}
     .controls{width:90vw;}
