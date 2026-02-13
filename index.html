@@ -1,10 +1,10 @@
-<!DOCTYPE html><!DOCTYPE html><!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html><!DOCTYPE html><!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Love Story ❤️</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
@@ -12,17 +12,14 @@
 
 <div class="wrapper">
 
-    <!-- BOOK -->
     <div class="scene">
-        <div class="book" id="book">
+        <div class="book">
 
-            <!-- COVER -->
             <div class="cover" id="cover">
                 <h2>For My Love 💖</h2>
                 <p>Click Open</p>
             </div>
 
-            <!-- PAGES -->
             <div class="page"><img src="photo1.jpg"><p>You are my sunshine.</p></div>
             <div class="page"><img src="photo2.jpg"><p>Your smile melts me.</p></div>
             <div class="page"><img src="photo3.jpg"><p>Every moment matters.</p></div>
@@ -37,7 +34,7 @@
         </div>
     </div>
 
-    <!-- BUTTONS DIRECTLY BELOW BOOK -->
+    <!-- BUTTONS -->
     <div class="controls">
         <button onclick="openBook()">Open</button>
         <button onclick="prevPage()">Prev</button>
@@ -47,14 +44,71 @@
 
 </div>
 
-<!-- Music -->
 <audio id="music" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="music-btn" onclick="toggleMusic()">🎵</div>
 
-<script src="script.js"></script>
+<!-- 🔥 JS INSIDE HTML -->
+<script>
+const cover = document.getElementById("cover");
+const pages = document.querySelectorAll(".page");
+const music = document.getElementById("music");
+
+let current = 0;
+let opened = false;
+
+pages.forEach((page, i)=>{
+    page.style.zIndex = pages.length - i;
+});
+
+function openBook(){
+    cover.style.transform = "rotateY(-180deg)";
+    opened = true;
+    music.play().catch(()=>{});
+}
+
+function nextPage(){
+    if(opened && current < pages.length){
+        pages[current].style.transform = "rotateY(-180deg)";
+        current++;
+    }
+}
+
+function prevPage(){
+    if(opened && current > 0){
+        current--;
+        pages[current].style.transform = "rotateY(0deg)";
+    }
+}
+
+function closeBook(){
+    if(current === 0){
+        cover.style.transform = "rotateY(0deg)";
+        opened = false;
+    }
+}
+
+function toggleMusic(){
+    music.paused ? music.play() : music.pause();
+}
+
+/* Floating hearts & roses */
+function createFloat(){
+    const el = document.createElement("div");
+    el.classList.add("float");
+    el.innerHTML = Math.random() > 0.5 ? "❤️" : "🌹";
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = (20 + Math.random()*25) + "px";
+    el.style.animationDuration = (6 + Math.random()*4) + "s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),10000);
+}
+
+setInterval(createFloat,300);
+</script>
+
 </body>
 </html>
 
